@@ -4,5 +4,6 @@ export interface UserLogin {
     "internalUserId": number,
     "internalUserUUID": string,
     "type": number,
-    "privileges": string
+    "privileges": string,
+    "userId": string
 }

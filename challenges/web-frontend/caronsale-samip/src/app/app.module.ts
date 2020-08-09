@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { OverviewComponent } from './overview/overview.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { OverviewComponent } from './overview/overview.component';
       {path: 'overview', component: OverviewComponent}
     ])
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

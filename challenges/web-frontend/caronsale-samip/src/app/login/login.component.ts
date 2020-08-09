@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserLoginService } from '../user-login.service';
+import { UserLogin } from '../user-login';
+import { CookieService } from 'ngx-cookie-service';
 import * as sha512 from 'js-sha512';
 
 @Component({
@@ -10,7 +12,7 @@ import * as sha512 from 'js-sha512';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router, private userLoginService: UserLoginService) { }
+  constructor(private router: Router, private userLoginService: UserLoginService, private cookieService: CookieService) { }
 
   emailList = ['salesman@random.com', 'salesman2@random.com', 'dealership@alwaysAvailable.com']
 
@@ -19,7 +21,8 @@ export class LoginComponent implements OnInit {
     userPassword: ''
   }
 
-  isError = false
+  isError = false;
+  userResults: UserLogin;
 
   private hasPasswordWithCycles(plainTextPassword: string, cycles: number):string {
     let hash = `${plainTextPassword}`;
@@ -39,6 +42,10 @@ export class LoginComponent implements OnInit {
 
       this.userLoginService.userLogin(this.model.userEmail, hashPassword).then((response) => {
         console.log(response);
+        this.userResults = response;
+        this.cookieService.set('token', this.userResults.token);
+        this.cookieService.set('userId', this.userResults.userId);
+        
         // Redirect to Overview page
         this.router.navigateByUrl('/overview')
       }, (error) => {
