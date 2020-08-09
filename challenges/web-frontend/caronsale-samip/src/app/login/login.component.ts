@@ -12,9 +12,7 @@ import * as sha512 from 'js-sha512';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router, private userLoginService: UserLoginService, private cookieService: CookieService) { }
-
-  emailList = ['salesman@random.com', 'salesman2@random.com', 'dealership@alwaysAvailable.com']
+  constructor(private router: Router, private userLoginService: UserLoginService, private cookieService: CookieService) {}
 
   model = {
     userEmail: '',

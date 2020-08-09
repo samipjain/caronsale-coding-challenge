@@ -8,14 +8,20 @@ export class UserAuthService {
 
   constructor(private cookieService: CookieService) { }
 
+  isLoggedIn: boolean = false;
+
   isUserLoggedIn() {
-    console.log(this.cookieService.get('userId'))
     if (this.cookieService.get('userId') != '' && this.cookieService.get('token') != '' && this.cookieService.get('uuid') != '') {
-      console.log(this.cookieService.get('userId'))
+      this.isLoggedIn = true
       return true
     }
     else {
+      this.isLoggedIn = false
       return false
     }
   }
+
+  getIsUserLoggedIn() {
+    return this.isLoggedIn
+  } 
 }
