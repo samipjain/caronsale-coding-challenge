@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-4" *ngFor="let a of auctionList">
         <div class="card" style="width: 18rem;">
-            <img class="card-img-top" [src]="a.associatedVehicle.vehicleImages[0].url" alt="Card image cap">
+            <img class="card-img-top" [src]="a.associatedVehicle.vehicleImages[0].url" alt="Card image cap" style="max-height: 200px;">
             <div class="card-body">
               <h5 class="card-title">{{a.label}}</h5>
               <p class="card-text">EZ: {{a.associatedVehicle.ez}}</p>
