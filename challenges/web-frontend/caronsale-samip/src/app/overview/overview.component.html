@@ -1,5 +1,15 @@
-<p>vehicle image thumbnail (vehicle images may not show actual vehicles cars on our DEV platform, but only test images)</p>
-    <p>basic vehicle information („Erstzulassung“/EZ, Mileage, Fuel Type, Transmission)</p>
-    <p>current highest bid value in Euro</p>
-    <p>remaining time in format „00h:00m:00s“</p>
-    <p>information whether the logged in buyer is the highest bidder on an auction</p>
+<div class="card" style="width: 18rem;" *ngFor="let a of auctionList">
+    <img class="card-img-top" [src]="a.associatedVehicle.vehicleImages[0].url" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{a.label}}</h5>
+      <p class="card-text">EZ: {{a.associatedVehicle.ez}}</p>
+      <p class="card-text">Fuel Type: {{a.associatedVehicle.fuelType}}</p>
+      <p class="card-text">Mileage (KM): {{a.associatedVehicle.mileageInKm}}</p>
+      <p class="card-text">Transmission: {{a.associatedVehicle.transmission}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Current Highest Bid: {{a.currentHighestBidValue}}</li>
+      <li class="list-group-item">Remaining Time: {{a.remainingTimeInSeconds | date: 'HH:mm:ss'}}</li>
+      <li class="list-group-item">Vestibulum at eros</li>
+    </ul>
+</div>
