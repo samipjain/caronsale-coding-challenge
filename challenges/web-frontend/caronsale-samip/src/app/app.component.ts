@@ -22,7 +22,8 @@ export class AppComponent implements OnInit {
     this.cookieService.delete('token');
     this.cookieService.delete('userId');
     this.isToken = ''
+    console.log(this.cookieService.get('userId'));
 
-    this.router.navigateByUrl('/overview')
+    this.router.navigateByUrl('/')
   }
 }
