@@ -1,15 +1,22 @@
-<form class="col-4">
-    <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+<div class = "row">
+    <div class="col-4">
+        <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" [(ngModel)]="model.userEmail" required class="form-control" name="userEmail" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" [(ngModel)]="model.userPassword" required class="form-control" name="userPassword">
+            </div>  
+            <button type="submit" class="btn btn-primary" [disabled]="!loginForm.form.valid">Login</button>
+        </form>
     </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1">
+</div>
+<div class="row" *ngIf="isError">
+    <div class="alert alert-danger" role="alert">
+        Error: Not registered buyer
     </div>
-    <div class="form-group form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
-    <button type="submit" class="btn btn-primary" routerLink="/overview">Login</button>
-  </form>
+</div>
+
+  
