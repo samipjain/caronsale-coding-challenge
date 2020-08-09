@@ -20,7 +20,7 @@ export class OverviewComponent implements OnInit {
   }
 
   getAuctions() {
-    let limit = 5
+    let limit = 10
 
     this.auctionsListService.getAuctions(limit).then((response) => {
       console.log(response)
