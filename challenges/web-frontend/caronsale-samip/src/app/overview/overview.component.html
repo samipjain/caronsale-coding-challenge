@@ -13,7 +13,7 @@
             <ul class="list-group list-group-flush">
               <li class="list-group-item">Current Highest Bid: {{a.currentHighestBidValue}}</li>
               <li class="list-group-item">Remaining Time: {{a.remainingTimeInSeconds | date: 'HH:mm:ss'}}</li>
-              <li class="list-group-item">Vestibulum at eros</li>
+              <li class="list-group-item">{{a.associatedVehicle.vehicleImages[0].uuid === uuid}}</li>
             </ul>
         </div>
     </div>

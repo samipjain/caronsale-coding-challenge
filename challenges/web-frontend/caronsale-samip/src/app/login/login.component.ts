@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit {
         this.userResults = response;
         this.cookieService.set('token', this.userResults.token);
         this.cookieService.set('userId', this.userResults.userId);
+        this.cookieService.set('uuid', this.userResults.internalUserUUID);
         
         // Redirect to Overview page
         this.router.navigateByUrl('/overview')

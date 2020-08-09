@@ -14,9 +14,11 @@ export class OverviewComponent implements OnInit {
   constructor(private router: Router, private cookieService: CookieService, private auctionsListService: AuctionsListService) { }
 
   auctionList: AuctionsList;
+  uuid: string;
 
   ngOnInit(): void {
     this.getAuctions()
+    this.uuid = this.cookieService.get('uuid')
   }
 
   getAuctions() {
