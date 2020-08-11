@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
+import { UserAuthService } from '../user-auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,12 +10,14 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private cookieService: CookieService, private router: Router) { }
+  constructor(private cookieService: CookieService, private router: Router, private userAuthService: UserAuthService) { }
 
-  @Input() isLoggedIn: boolean;
   title = 'caronsale-samip';
+  
+  isLoggedIn: boolean;
 
   ngOnInit(): void {
+    this.isLoggedIn = this.userAuthService.getIsUserLoggedIn();
     console.log(this.isLoggedIn);
   }
 

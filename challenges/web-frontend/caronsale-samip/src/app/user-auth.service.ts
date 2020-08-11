@@ -21,6 +21,10 @@ export class UserAuthService {
     }
   }
 
+  setIsUserLoggedIn(val) {
+    this.isLoggedIn = val;
+  }
+
   getIsUserLoggedIn() {
     return this.isLoggedIn
   } 

@@ -13,7 +13,6 @@ export class AppComponent implements OnInit {
   constructor(private router: Router, private cookieService: CookieService, private userAuthService: UserAuthService) { }
 
   ngOnInit(): void {
-    console.log(this.userAuthService.isUserLoggedIn())
     if (this.userAuthService.isUserLoggedIn()) {
       this.router.navigateByUrl('/overview')
     }
